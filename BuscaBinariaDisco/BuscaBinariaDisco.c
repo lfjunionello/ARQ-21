@@ -23,10 +23,7 @@ int buscaBinaria(FILE *f, char *target,long primeiro,long ultimo,int count){  //
 
 	if(ultimo >= primeiro){
 
-		//int qt;	// Testa se foi possivel ler
-
 		count++;
-
 		meio = (primeiro+ultimo)/2;
 
 		printf("\nINICIO: %ld\tMEIO: %ld\tFINAL: %ld\n",primeiro,meio,ultimo);
@@ -40,6 +37,7 @@ int buscaBinaria(FILE *f, char *target,long primeiro,long ultimo,int count){  //
 			printf("\nLogradouro: %.72s\nBairro: %.72s\nCidade: %.72s\nUF: %.72s\nSigla: %.2s\nCEP: %.8s\n\n",e.logradouro,e.bairro,e.cidade,e.uf,e.sigla,e.cep);
 			return count;
 		}
+
 		else{
 			if(strncmp(target,e.cep,8) > 0){
 				buscaBinaria(f,target,meio+1,ultimo,count);
@@ -48,20 +46,14 @@ int buscaBinaria(FILE *f, char *target,long primeiro,long ultimo,int count){  //
 			else if(strncmp(target,e.cep,8) < 0){
 				buscaBinaria(f,target,primeiro,meio-1,count);
 			}
-
 		}
-
 	}
 	else{
-		
 		printf("Não foi possivel encountrar o CEP\n");
 		return count;
-
 	}
 
 }
-
-
 
 int main(int argc, char**argv){
 
