@@ -19,14 +19,14 @@ int buscaBinaria(FILE *f, char *target,long primeiro,long ultimo,int count){  //
 
 	Endereco e;
 	long meio;
-	rewind(f);
+	fseek(f,0,SEEK_SET);
 
 	if(ultimo >= primeiro){
 
 		count++;
 		meio = (primeiro+ultimo)/2;
 
-		printf("\nINICIO: %ld\tMEIO: %ld\tFINAL: %ld\n",primeiro,meio,ultimo);
+		//printf("\nINICIO: %ld\tMEIO: %ld\tFINAL: %ld\n",primeiro,meio,ultimo); //Print para ver cada passo
 
 		fseek(f,(meio*sizeof(Endereco)),SEEK_SET);
 
@@ -77,10 +77,6 @@ int main(int argc, char**argv){
 	tamanhoArquivo = ftell(f);
 
 	fseek(f,0,SEEK_SET);
-	printf("Tamanho do Arquivo: %ld\n", tamanhoArquivo);
-	printf("Tamanho do Registro: %ld\n", sizeof(Endereco));
-	printf("Tamanho do Arquivo em Registros: %ld\n", tamanhoArquivo/sizeof(Endereco));
-
 
 	primeiro = 0;
 	ultimo = (tamanhoArquivo/sizeof(Endereco))-1;
