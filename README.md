@@ -1,1 +1,2 @@
-# ARQ-21
+# Organização e estruturas de arquivos
+Entregas dos exercícios práticos CEFET/RJ
